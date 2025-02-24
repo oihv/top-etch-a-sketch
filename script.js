@@ -12,6 +12,14 @@ for (let i = 0; i < GRID_SIZE; i++) {
     pixel.addEventListener("mouseenter", () => {
       pixel.style.backgroundColor = "Cyan";
     })
-
   }
 }
+
+const button = document.querySelector("button");
+const pixels = document.querySelectorAll(".pixel");
+
+button.addEventListener("click", () => {
+  for (const p of pixels) {
+    p.style.backgroundColor = "Blue";
+  }
+})

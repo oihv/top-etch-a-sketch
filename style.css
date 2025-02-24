@@ -30,6 +30,12 @@ body, html {
   border-color: grey;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
 button {
   margin: auto;
   padding: auto;
