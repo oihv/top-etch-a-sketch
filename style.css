@@ -1,3 +1,37 @@
-.container {
-  margin: 10px auto;
+body, html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container {
+  margin: auto;
+  background-color: Blue;
+  width: 512px;
+  height: 512px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pixel {
+  width: 32px;
+  height: 32px;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+}
+
+button {
+  margin: auto;
+  padding: auto;
+}
+
