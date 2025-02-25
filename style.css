@@ -21,6 +21,14 @@ body, html {
   flex-wrap: wrap;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  margin: 10px;
+}
+
 .pixel {
   width: 32px;
   height: 32px;
@@ -34,10 +42,5 @@ body, html {
   display: flex;
   justify-content: center;
   margin: 20px;
-}
-
-button {
-  margin: auto;
-  padding: auto;
 }
 
