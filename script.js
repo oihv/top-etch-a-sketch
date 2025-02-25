@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 
 const CONTAINER_SIZE = 512;
+var counter = 1;
 
 // draw the grid based on the size
 function drawGrid(size) {
@@ -9,16 +10,34 @@ function drawGrid(size) {
       let pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      let length = CONTAINER_SIZE / size;
+      let length = (CONTAINER_SIZE / size);
       pixel.style.width = `${length}px`;
       pixel.style.height = `${length}px`;
 
       container.appendChild(pixel);
 
       pixel.addEventListener("mouseenter", () => {
-        pixel.style.backgroundColor = "Cyan";
+        var styles = getComputedStyle(pixel);
+        let opacity = styles.getPropertyValue("opacity");
+        opacity -= 0.1;
+        pixel.style.opacity = `${opacity}`;
+        //pixel.style.backgroundColor = "Cyan";
       })
     }
+  }
+}
+
+// get NodeList of all the pixels
+function getPixels() {
+  return document.querySelectorAll(".pixel");
+}
+
+// delete the existing grid
+function deleteGrid() {
+  const pixels = getPixels();
+
+  for (const p of pixels) {
+    container.removeChild(p);
   }
 }
 
@@ -29,14 +48,17 @@ form.addEventListener("submit", (e) => {
 
   var formData = new FormData(e.target);
 
+  deleteGrid();
+
   drawGrid(formData.get("size"));
 })
 
+// reset the color of the grid back to original
 const button = document.querySelector("button#clear");
 
 button.addEventListener("click", () => {
-  const pixels = document.querySelectorAll(".pixel");
+  const pixels = getPixels();
   for (const p of pixels) {
-    p.style.backgroundColor = "Blue";
+    p.style.opacity = 1;
   }
 })
